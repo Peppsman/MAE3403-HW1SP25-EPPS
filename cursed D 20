@@ -1,0 +1,13 @@
+#region ( I just wanted to play arounnd and make a cursed D20)
+
+import random
+
+def unfair_roll():
+    weights = [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3]  # Assign higher weight to the numbers 1 and 20
+    outcomes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    return random.choices(outcomes, weights=weights, k=1)[0]
+
+# Example usage would be a cursed weapon that can both devistait or fail uterly in the moment
+roll_result = unfair_roll()
+print(f"The unfair roll result is: {roll_result}")
+#endregion
