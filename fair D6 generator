@@ -1,0 +1,58 @@
+#region (main1 single D6 roll and 1000 roll probability tracker)
+import random
+
+
+def roll_die():
+    return random.randint(1, 6)
+
+
+def roll_and_track(times):
+    results = {i: 0 for i in range(1, 7)}
+
+    for _ in range(times):
+        roll = roll_die()
+        results[roll] += 1
+        print(f"The random number is {roll}")
+
+    return results
+
+
+def display_probabilities(results, times):
+    print("\nProbabilities:")
+    for number, count in results.items():
+        probability = count / times
+        print(f"Number {number} rolled {count} times with probability {probability:.2f}")
+
+
+# Roll the die 1000 times and display probabilities
+num_rolls = 1000
+results = roll_and_track(num_rolls)
+display_probabilities(results, num_rolls)
+#endregion
+#region (main 2 100000 rolls on a D6)
+def roll_die():
+    return random.randint(1, 6)
+
+
+def roll_and_track(times):
+    results = {i: 0 for i in range(1, 7)}
+
+    for _ in range(times):
+        roll = roll_die()
+        results[roll] += 1
+        print(f"The random number is {roll}")
+
+    return results
+
+
+def display_probabilities(results, times):
+    print("\nProbabilities:")
+    for number, count in results.items():
+        probability = count / times
+        print(f"Number {number} rolled {count} times with probability {probability:.2f}")
+
+
+# Roll the die 10000 times and display probabilities
+num_rolls = 10000
+results = roll_and_track(num_rolls)
+display_probabilities(results, num_rolls)
