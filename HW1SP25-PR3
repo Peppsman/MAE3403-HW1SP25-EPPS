@@ -1,0 +1,40 @@
+#region (a randomizor for the random number generator to make it even more real)
+import random
+
+
+def fairD6():
+    return random.randint(1, 6)
+
+#at this point its the same as before
+def rollDice(N=1):
+    total_score = sum(fairD6() for _ in range(N))
+    return total_score
+
+
+def roll_and_track(times):
+    results = {i: 0 for i in range(1, 7)}
+
+    for _ in range(times):
+        roll = fairD6()
+        results[roll] += 1
+
+    return results
+
+
+def display_probabilities(results, times):
+    print("\nProbabilities:")
+    for number, count in results.items():
+        probability = count / times
+        print(f"Number {number} rolled {count} times with probability {probability:.2f}")
+
+#displaying the probability 
+def main():
+    num_rolls = 1000
+    results = roll_and_track(num_rolls)
+    display_probabilities(results, num_rolls)
+
+
+if __name__ == "__main__":
+    main()
+#endregion 
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
