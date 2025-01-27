@@ -1,4 +1,6 @@
 #region (a randomizor for the random number generator to make it even more real)
+#Note from in class, while Dr Smay explanes theis question.
+#turns out I didn't understand the question 
 import random
 
 
@@ -20,7 +22,7 @@ def roll_and_track(times):
 
     return results
 
-
+#shows the results
 def display_probabilities(results, times):
     print("\nProbabilities:")
     for number, count in results.items():
