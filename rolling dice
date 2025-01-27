@@ -1,0 +1,58 @@
+#region (Dice roller that calls on fairD6 to roll several dice at once and add them up)
+import random
+
+def fairD6():
+    return random.randint(1, 6)
+
+def rollDice(N=1):
+    total_score = sum(fairD6() for _ in range(N))
+    return total_score
+
+# showing what it shuould look like
+if __name__ == "__main__":
+    num_dice = 6
+    total = rollDice(N=num_dice)
+    print(f"Rolling {num_dice} dice results in a total score of: {total}")
+
+#endregion
+                      
+#region ( calls, rolls, and shows probabilty from rolldice)
+import random
+
+
+def fairD6():
+    return random.randint(1, 6)
+
+
+def rollDice(N=1):
+    total_score = sum(fairD6() for _ in range(N))
+    return total_score
+
+
+def roll_and_track(times):
+    results = {i: 0 for i in range(1, 7)}
+
+    for _ in range(times):
+        roll = fairD6()
+        results[roll] += 1
+
+    return results
+
+
+def display_probabilities(results, times):
+    print("\nProbabilities:")
+    for number, count in results.items():
+        probability = count / times
+        print(f"Number {number} rolled {count} times with probability {probability:.2f}")
+
+
+def main():
+    num_rolls = 1000
+    results = roll_and_track(num_rolls)
+    display_probabilities(results, num_rolls)
+
+
+if __name__ == "__main__":
+    main()
+#endregion
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
